@@ -1,26 +1,31 @@
+// src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import { Layout, Menu } from 'antd';
+import MainTable from './components/MainTable';
+import Analytics from './components/Analytics';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const { Header, Content, Footer } = Layout;
+
+const App: React.FC = () => {
+    return (
+        <Layout className="layout">
+            <Header>
+                <div className="logo" />
+                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+                    <Menu.Item key="1">Main Table</Menu.Item>
+                    <Menu.Item key="2">Analytics</Menu.Item>
+                </Menu>
+            </Header>
+            <Content style={{ padding: '0 50px' }}>
+                <div className="site-layout-content">
+                    <MainTable />
+                    <Analytics />
+                </div>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>Floqer Assignment ©2024</Footer>
+        </Layout>
+    );
+};
 
 export default App;
